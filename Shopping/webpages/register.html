@@ -1,0 +1,34 @@
+
+
+
+<html>
+<head>
+<title>Registration</title>
+<script language="javascript">
+function checkInput(ob) {
+  var invalidChars = /[^0-9]/gi
+  if(invalidChars.test(ob.value)) {
+            ob.value = ob.value.replace(invalidChars,"");
+      }
+}
+</script>
+</head>
+<form>
+    First Name:
+    <input type="text" name="firstname"><br>
+    Last Name:
+    <input type="text" name="lastname"><br>
+	EmailID:
+	<input type="text" name="EmailID"><br>
+	Mobile Number:
+<input type="text" onkeyup="checkInput(this)"/><br>
+    Password:
+    <input type="password" name="pwd"><br>
+	confirm password 
+	<input type="password" name="pwd"><br>
+    Are you male or female?<br>
+    <input type="radio" name="sex" value="male">Male
+    <input type="radio" name="sex" value="female">Female<br>
+    <input type="submit" value="submit"><br>
+</form>
+</html>

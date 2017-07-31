@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+		<servlet-name>log</servlet-name>
+		<servlet-class> org.servlet.shopping.SigninServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>log</servlet-name>
+		<url-pattern>/controller</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class> org.servlet.shopping.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>register</servlet-name>
+		<url-pattern>/Register</url-pattern>
+	</servlet-mapping>
+	
+	
+		<servlet>
+		<servlet-name>cart</servlet-name>
+		<servlet-class> org.servlet.shopping.Products</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cart</servlet-name>
+		<url-pattern>/cart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>payment</servlet-name>
+		<servlet-class> org.servlet.shopping.Paymentservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>payment</servlet-name>
+		<url-pattern>/payment</url-pattern>
+	</servlet-mapping>
+</web-app>
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="servletlesson" default="myWebApp" basedir="." > 
+	<property name="java.program.dir" value = "./src" />	
+	<property name="java.classes.dir" value = "./classes" />
+	<property name="web.pages.dir" value = "./webpages" />
+	<property name="config.dir" value = "./config" />
+	<property name="lib.dir" value = "./lib" />
+	
+	<target name="cleanup">
+		<delete dir="${java.classes.dir}"></delete>
+		<mkdir dir="${java.classes.dir}"/>
+	</target>
+
+	<target name="myOwnCompiler" depends="cleanup">
+		<path id="project.class.path">
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+		<javac includeantruntime="false"  classpathref="project.class.path"  destdir="${java.classes.dir}" debug="true">
+			<src path="${java.program.dir}" />
+		</javac>
+	</target>
+		
+	<target name="myWebApp" depends="myOwnCompiler">
+		<war destfile="./shoping.war" webxml="${config.dir}/web.xml">
+				<lib dir="${lib.dir}"></lib>
+			    <fileset dir="${web.pages.dir}"/>
+				<classes dir="${java.classes.dir}"/>
+			<!-- Hibernate config change -->
+	   <classes dir="${config.dir}" includes="hibernate.cfg.xml"/>
+			 <classes file="./log4j.properties"/>
+		</war>	
+		<copy todir="E:\softwares\apache-tomcat-7.0.73\webapps" 
+			file="./shoping.war">
+		</copy>
+		
+	</target>
+		
+</project>
